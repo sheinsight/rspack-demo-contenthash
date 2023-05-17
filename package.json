@@ -1,0 +1,22 @@
+{
+  "name": "rspack-hash-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rspack build"
+  },
+  "packageManager": "pnpm@8.1.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rspack/cli": "^0.1.11",
+    "@rspack/core": "^0.1.11",
+    "@rspack/dev-server": "^0.1.11"
+  },
+  "dependencies": {
+    "less-loader": "^11.1.0",
+    "shineout": "^2.0.1"
+  }
+}
