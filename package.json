@@ -11,11 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@rspack/cli": "^0.1.11",
-    "@rspack/core": "^0.1.11",
-    "@rspack/dev-server": "^0.1.11"
+    "@rspack/cli": "0.3.7",
+    "@rspack/core": "0.3.7",
+    "@rspack/dev-server": "0.3.7"
   },
   "dependencies": {
+    "html-webpack-plugin": "5.5.3",
     "less-loader": "^11.1.0",
     "shineout": "^2.0.1"
   }
