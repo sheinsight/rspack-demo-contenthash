@@ -1,8 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-// console.log(HtmlWebpackPlugin);
-
 function getSrcLessLoaderRspack() {
   return {
     test: /\.less$/i,
@@ -80,7 +78,34 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|ico|otf)$/i,
         type: "asset",
       },
-      
+      {
+        test: /\.(js|mjs|ts|cjs)x?$/,
+        type: "javascript/auto",
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: "builtin:swc-loader",
+            options: {
+              sourceMap: true,
+              jsc: {
+                parser: {
+                  syntax: "typescript",
+                  jsx: true,
+                  tsx: true,
+                },
+                target: "es5",
+                transform: {
+                  react: {
+                    runtime: "automatic",
+                    refresh: true,
+                    development: true,
+                  },
+                },
+              },
+            },
+          },
+        ],
+      },
       getNodeModulesLessLoaderRspack(),
       getNodeModulesCssLoaderRspack(),
       getSrcCssLoaderRspack(),
@@ -90,11 +115,11 @@ module.exports = {
   plugins:[
     new HtmlWebpackPlugin()
   ],
-  // builtins: { 
-  //   progress: {
-  //     prefix: "progressPrefix",
-  //   }, 
-  // },
+  builtins: { 
+    progress: {
+      prefix: "progressPrefix",
+    }, 
+  },
   mode: "production",
   devtool: "hidden-source-map",
   experiments:{
